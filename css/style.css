@@ -6,7 +6,7 @@
 
 .game-board {
     width:100%;
-    height:500px;
+    height:100vh;
     border-bottom: 15px solid rgb(35, 160, 35);
     margin:0 auto;
     position: relative;
@@ -16,9 +16,45 @@
 
 .pipe {
     position: absolute;
+    right: 0;
     bottom: 0;
     width: 80px;
+}
+
+.start {
     animation: pipe-animation 1.5s linear infinite;
+}
+
+.hide {
+    display: none;
+}
+
+.startBtn {
+    width: 100px;
+    height: 50px;
+    background: rgb(35, 160, 35);
+    color: white;
+    font-size: 20px;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.restartBtn {
+    width: 100px;
+    height: 50px;
+    background: rgb(35, 160, 35);
+    color: white;
+    font-size: 20px;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
 }
 
 .mario {
@@ -33,6 +69,7 @@
 
 .clouds {
     position: absolute;
+    padding-top: 5%;
     width: 550px;
     animation: clouds-animation 20s linear infinite;
 }

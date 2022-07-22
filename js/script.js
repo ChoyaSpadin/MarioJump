@@ -1,11 +1,20 @@
 const mario = document.querySelector(".mario");
 const pipe = document.querySelector(".pipe");
+const startBtn = document.querySelector(".startBtn");
+const restartBtn = document.querySelector(".restartBtn");
+
+restartBtn.classList.add("hide");
 
 const jump = () => {
   mario.classList.add("jump");
   setTimeout(() => {
     mario.classList.remove("jump");
   }, 500);
+};
+const start = () => {
+  pipe.classList.add("start");
+
+  startBtn.classList.add("hide");
 };
 
 const loop = setInterval(() => {
@@ -24,6 +33,8 @@ const loop = setInterval(() => {
     mario.src = "./images/game-over.png";
     mario.style.width = "75px";
     mario.style.marginLeft = "50px";
+
+    restartBtn.classList.add("display");
 
     clearInterval(loop);
   }
