@@ -57,6 +57,20 @@
     cursor: pointer;
 }
 
+.timer {
+    display: flex;
+    justify-content: center;
+    font-size: 4rem;
+    padding-top: 1%;
+}
+
+.score {
+    /*display: flex;*/
+    /*justify-content: center;*/
+    font-size: 4rem;
+    padding-top: 1%;
+}
+
 .mario {
     width: 150px;
     position: absolute;
