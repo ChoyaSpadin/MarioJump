@@ -9,9 +9,7 @@ score.classList.add("hide");
 
 const jump = () => {
   mario.classList.add("jump");
-  setTimeout(() => {
-    mario.classList.remove("jump");
-  }, 500);
+  setTimeout(() => mario.classList.remove("jump"), 500);
 };
 const start = () => {
   pipe.classList.add("start");
@@ -53,9 +51,7 @@ let cron;
 
 function startTimer() {
   pause();
-  cron = setInterval(() => {
-    timer();
-  }, 10);
+  cron = setInterval(() => timer(), 10);
 }
 
 function pause() {
