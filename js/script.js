@@ -110,26 +110,19 @@ function saveScore(key, value) {
   //   minute);
 
   const lastScore = `${minute}:${second}:${millisecond}`;
-  // const lastScore = JSON.stringify(`${minute}:${second}:${millisecond}` || []);
 
   localStorage.setItem(lastScore, lastScore);
 
-  //receive data from localStorage dont show first item
-  const scoreTable = [localStorage.getItem(lastScore)] || [];
+  const scoreTable = [];
 
   for (let i = 0; i < localStorage.length; i++) {
     scoreTable.push(localStorage.key(i));
-    console.log(scoreTable);
-    // max number of scores to be displayed and delete the last one
-    if (scoreTable.length > 5) {
+    if (scoreTable.length > 2) {
       localStorage.removeItem(scoreTable[i]);
     }
   }
 
-  //sort the scores in descending order
   scoreTable.sort().reverse();
 
-  console.log(scoreTable);
-  // display scores with the highest score first
   document.getElementById("scoreTable").innerHTML = scoreTable.join("<br>");
 }
