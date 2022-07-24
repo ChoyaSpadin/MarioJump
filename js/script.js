@@ -2,10 +2,9 @@ const mario = document.querySelector(".mario");
 const pipe = document.querySelector(".pipe");
 const startBtn = document.querySelector(".startBtn");
 const restartBtn = document.querySelector(".restartBtn");
-const score = document.getElementById("score");
+const scoreDiv = document.getElementById("score");
 
 restartBtn.classList.add("hide");
-score.classList.add("hide");
 
 const jump = () => {
   mario.classList.add("jump");
@@ -17,6 +16,7 @@ const start = () => {
 };
 
 document.addEventListener("keydown", jump);
+document.addEventListener("click", jump);
 
 const loop = setInterval(() => {
   const pipePosition = pipe.offsetLeft;
@@ -35,7 +35,7 @@ const loop = setInterval(() => {
     mario.style.width = "75px";
     mario.style.marginLeft = "50px";
     restartBtn.classList.remove("hide");
-    score.classList.remove("hide");
+    scoreDiv.style.visibility = "visible";
     pause();
     saveScore();
     clearInterval(loop);
@@ -96,19 +96,40 @@ function returnData(input) {
   return input > 10 ? input : `0${input}`;
 }
 
-function saveScore() {
+function saveScore(key, value) {
   const minute = document.getElementById("minute").innerText;
   const second = document.getElementById("second").innerText;
   const millisecond = document.getElementById("millisecond").innerText;
-  const scoreMillisecond = (document.getElementById(
-    "scoreMillisecond"
-  ).innerHTML = millisecond);
-  const scoreSecond = (document.getElementById("scoreSecond").innerHTML =
-    second);
-  const scoreMinute = (document.getElementById("scoreMinute").innerHTML =
-    minute);
-  // const xhr = new XMLHttpRequest();
-  // xhr.open("POST", "http://localhost:3000/save", true);
-  // xhr.setRequestHeader("Content-Type", "application/json");
-  // xhr.send(JSON.stringify(data));
+
+  // const scoreMillisecond = (document.getElementById(
+  //   "scoreMillisecond"
+  // ).innerHTML = millisecond);
+  // const scoreSecond = (document.getElementById("scoreSecond").innerHTML =
+  //   second);
+  // const scoreMinute = (document.getElementById("scoreMinute").innerHTML =
+  //   minute);
+
+  const lastScore = `${minute}:${second}:${millisecond}`;
+  // const lastScore = JSON.stringify(`${minute}:${second}:${millisecond}` || []);
+
+  localStorage.setItem(lastScore, lastScore);
+
+  //receive data from localStorage dont show first item
+  const scoreTable = [localStorage.getItem(lastScore)] || [];
+
+  for (let i = 0; i < localStorage.length; i++) {
+    scoreTable.push(localStorage.key(i));
+    console.log(scoreTable);
+    // max number of scores to be displayed and delete the last one
+    if (scoreTable.length > 5) {
+      localStorage.removeItem(scoreTable[i]);
+    }
+  }
+
+  //sort the scores in descending order
+  scoreTable.sort().reverse();
+
+  console.log(scoreTable);
+  // display scores with the highest score first
+  document.getElementById("scoreTable").innerHTML = scoreTable.join("<br>");
 }

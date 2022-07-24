@@ -1,38 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="css/style.css" />
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="css/style.css"/>
     <script src="js/script.js" defer></script>
     <title>Mario Jump</title>
-  </head>
-  <body>
-    <div class="game-board">
-      <form name="form_main">
+</head>
+<body>
+<div class="game-board">
+    <form name="form_main">
         <div id="timerScore" class="timer">
-          <span id="minute">00</span>:<span id="second">00</span>:<span
-            id="millisecond"
-            >000</span
-          >
+            <span id="minute">00</span>:<span id="second">00</span>:<span
+                id="millisecond"
+        >000</span
+        >
         </div>
         <div></div>
         <div id="score" class="score">
-          Score &#160; <span id="scoreMinute"></span>:<span
-            id="scoreSecond"
-          ></span
-          >:<span id="scoreMillisecond"></span>
+            Score &#160; <span id="scoreMinute"></span>:<span
+                id="scoreSecond"
+        ></span
+        >:<span id="scoreMillisecond"></span>
         </div>
-      </form>
+        <div id="scoreTable" class="scoreTable"></div>
+    </form>
 
-      <img src="./images/clouds.png" class="clouds" alt="clouds" />
-      <img src="./images/mario.gif" class="mario" alt="mario" />
-      <img src="./images/pipe.png" class="pipe" alt="pipe" />
-      <button class="startBtn" id="startBtn" onclick="start(); startTimer()">
+    <img src="./images/clouds.png" class="clouds" alt="clouds"/>
+    <img src="./images/mario.gif" class="mario" alt="mario"/>
+    <img src="./images/pipe.png" class="pipe" alt="pipe"/>
+    <button class="startBtn" id="startBtn" onclick="start(); startTimer()">
         Start
-      </button>
-      <button class="restartBtn" onClick="window.location.reload();">
+    </button>
+    <button class="restartBtn" onClick="window.location.reload();">
         Refresh
-      </button>
-    </div>
-  </body>
+    </button>
+</div>
+</body>
 </html>

@@ -66,10 +66,20 @@
 }
 
 .score {
-    /*display: flex;*/
-    /*justify-content: center;*/
+    display: flex;
+    justify-content: center;
     font-size: 4rem;
     padding-top: 1%;
+    visibility: hidden;
+}
+
+.scoreTable {
+    display: flex;
+    justify-content: center;
+
+    font-size: 4rem;
+    padding-top: 1%;
+    background: #1e1e1e;
 }
 
 .mario {
